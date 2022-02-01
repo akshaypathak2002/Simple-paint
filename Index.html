@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Own mspaint</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styling.css">
+</head>
+
+<body>
+    <h1>Paint own Picture</h1>
+    <!-- to change the width of the canvas  -->
+    <p>
+        Set width
+        <input type="text" onchange="setWidht(this.value)" />
+        Set Height
+        <input type="text" onchange="setHeight(this.value)" />
+        <!-- We need to give value to onchnage function from this.value means value entered by user  -->
+    </p>
+    <canvas id="canvas1" onmousedown="startPaint()" onmousemove="dopaint(event.offsetX,event.offsetY)"
+        onmouseup="endPaint()">
+        <!-- Handling mouse events  -->
+        <!-- Adding a canvas on which we will do drawing  -->
+    </canvas>
+    <p>
+        Brush color: <input type="color" value="#000" onchange="changeColor( this.value)">
+        <!-- This is how we pass value to the function  -->
+        Brush size:<input type="range" min="5" max="50" value="50" oninput="resizeBrush(this.value)" />
+        <output id="sizeOutput">50</output>
+        <!-- Output tag to output the value of the size of the brush  -->
+    </p>
+    <p>
+        <input type="button" onclick="clearCanvas()" id="clear" value="clear canvas ">
+    </p>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script src="soul.js" async defer></script>
+</body>
+
+</html>
